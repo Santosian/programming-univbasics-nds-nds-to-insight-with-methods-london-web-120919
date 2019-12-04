@@ -12,12 +12,15 @@ result = {}
   while dir_idx < nds.length
     movie_idx = 0
     worldwide_gross_dir = 0
-    while movie_idx < nds[dir_idx][:movies].count
-      worldwide_gross_dir += nds[dir_idx][:movies][movie_idx][:worldwide_gross]
-      movie_idx += 1
-    end
+    
+    # while movie_idx < nds[dir_idx][:movies].count
+    #   worldwide_gross_dir += nds[dir_idx][:movies][movie_idx][:worldwide_gross]
+    #   movie_idx += 1
+    # end
+    pp nds
+    gross = gross_for_director(nds[dir_idx])
     dir_name = nds[dir_idx][:name]
-    result[dir_name] = worldwide_gross_dir
+    result[dir_name] = gross
     dir_idx += 1
   end
   return result
